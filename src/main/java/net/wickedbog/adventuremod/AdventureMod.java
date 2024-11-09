@@ -3,6 +3,7 @@ package net.wickedbog.adventuremod;
 import net.wickedbog.adventuremod.block.ModBlocks;
 import net.wickedbog.adventuremod.item.ModCreativeModeTabs;
 import net.wickedbog.adventuremod.item.ModItems;
+import net.wickedbog.adventuremod.worldgen.biomes.ModTerrablender;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -29,6 +30,8 @@ public class AdventureMod {
         modEventBus.addListener(this::commonSetup);
 
         NeoForge.EVENT_BUS.register(this);
+
+        ModTerrablender.registerBiomes();
 
         ModCreativeModeTabs.register(modEventBus);
 
