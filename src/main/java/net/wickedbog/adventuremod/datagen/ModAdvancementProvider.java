@@ -13,15 +13,16 @@ import net.neoforged.neoforge.common.data.AdvancementProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.wickedbog.adventuremod.AdventureMod;
 import net.wickedbog.adventuremod.block.ModBlocks;
-import net.wickedbog.adventuremod.item.ModItems;
 
 import java.util.Optional;
 import java.util.function.Consumer;
 
 public class ModAdvancementProvider implements AdvancementProvider.AdvancementGenerator {
+    Advancement.Builder builder = Advancement.Builder.advancement();
+
     @Override
     public void generate(HolderLookup.Provider registries, Consumer<AdvancementHolder> saver, ExistingFileHelper existingFileHelper) {
-        Advancement rootAdvancement = Advancement.Builder.advancement()
+        Advancement rootAdvancement = builder
                 .display(new DisplayInfo(new ItemStack(ModBlocks.HEARTWOOD_LOG.get()),
                         Component.literal("Adventure Mod"), Component.literal("This a weird tree..."),
                         Optional.of(ResourceLocation.fromNamespaceAndPath(AdventureMod.MOD_ID, "textures/block/heartwood_log.png")), AdvancementType.TASK,

@@ -53,6 +53,10 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         this.dropSelf(ModBlocks.HEARTWOOD_SAPLING.get());
 
+        // Flowers ect.
+
+        this.dropSelf(ModBlocks.CELESTIAL_GRASS.get());
+
         // add(ModBlocks.BISMUTH_ORE.get(),
         //         block -> createOreDrop(ModBlocks.BISMUTH_ORE.get(), ModItems.RAW_BISMUTH.get()));
         // add(ModBlocks.BISMUTH_DEEPSLATE_ORE.get(),

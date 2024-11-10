@@ -2,9 +2,18 @@ package net.wickedbog.adventuremod.datagen;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.models.BlockModelGenerators;
+import net.minecraft.data.models.blockstates.MultiVariantGenerator;
+import net.minecraft.data.models.blockstates.PropertyDispatch;
+import net.minecraft.data.models.blockstates.Variant;
+import net.minecraft.data.models.blockstates.VariantProperties;
+import net.minecraft.data.models.model.ModelTemplate;
+import net.minecraft.data.models.model.ModelTemplates;
+import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -15,6 +24,22 @@ import net.wickedbog.adventuremod.block.ModBlocks;
 public class ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
         super(output, AdventureMod.MOD_ID, exFileHelper);
+    }
+
+    static enum TintState {
+        TINTED,
+        NOT_TINTED;
+
+        private TintState() {
+        }
+
+        public ModelTemplate getCross() {
+            return this == TINTED ? ModelTemplates.TINTED_CROSS : ModelTemplates.CROSS;
+        }
+
+        public ModelTemplate getCrossPot() {
+            return this == TINTED ? ModelTemplates.TINTED_FLOWER_POT_CROSS : ModelTemplates.FLOWER_POT_CROSS;
+        }
     }
 
     @Override
@@ -50,7 +75,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
         // Saplings
 
         saplingBlock(ModBlocks.HEARTWOOD_SAPLING);
+
+        // Flowers ect.
+
+        simpleBlock(ModBlocks.CELESTIAL_GRASS.get(),
+                models().cross(blockTexture(ModBlocks.CELESTIAL_GRASS.get()).getPath(), blockTexture(ModBlocks.CELESTIAL_GRASS.get())).renderType("cutout"));
     }
+
+
 
     private void leavesBlock(DeferredBlock<Block> deferredBlock) {
         simpleBlockWithItem(deferredBlock.get(),

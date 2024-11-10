@@ -34,5 +34,10 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.STRIPPED_HEARTWOOD_LOG.get())
                 .add(ModBlocks.HEARTWOOD_WOOD.get())
                 .add(ModBlocks.STRIPPED_HEARTWOOD_WOOD.get());
+
+        // Flowers ect.
+
+        this.tag(BlockTags.FLOWERS)
+                .add(ModBlocks.CELESTIAL_GRASS.get());
     }
 }

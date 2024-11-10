@@ -2,14 +2,14 @@ package net.wickedbog.adventuremod.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -90,6 +90,14 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> HEARTWOOD_SAPLING = registerBlock("heartwood_sapling",
             () -> new SaplingBlock(ModTreeGrowers.HEARTWOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+
+    // Flowers ect.
+
+    public static final DeferredBlock<Block> CELESTIAL_GRASS = registerBlock("celestial_grass",
+            () -> new TallGrassBlock(BlockBehaviour.Properties.of()
+                    .replaceable().noCollission().instabreak()
+                    .sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)
+                    .ignitedByLava().pushReaction(PushReaction.DESTROY).lightLevel(s -> 3)));
 
     // Rest
 
