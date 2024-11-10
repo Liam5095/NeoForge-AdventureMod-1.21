@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "has_heartwood_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "adventuremod:heartwood_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "adventuremod:textures/block/heartwood_log.png",
+    "description": "This a weird tree...",
+    "icon": {
+      "count": 1,
+      "id": "adventuremod:test_item"
+    },
+    "title": "Adventure Mod"
+  },
+  "requirements": [
+    [
+      "has_heartwood_log"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
