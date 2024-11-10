@@ -22,6 +22,13 @@ public class ModCreativeModeTabs {
                     .displayItems((pParameters, pOutput) -> {
                         pOutput.accept(ModItems.TEST_ITEM);
                         pOutput.accept(ModBlocks.TEST_BLOCK);
+                        pOutput.accept(ModBlocks.HEARTWOOD_LOG);
+                        pOutput.accept(ModBlocks.STRIPPED_HEARTWOOD_LOG);
+                        pOutput.accept(ModBlocks.HEARTWOOD_WOOD);
+                        pOutput.accept(ModBlocks.STRIPPED_HEARTWOOD_WOOD);
+                        pOutput.accept(ModBlocks.HEARTWOOD_PLANKS);
+                        pOutput.accept(ModBlocks.HEARTWOOD_LEAVES);
+                        pOutput.accept(ModBlocks.HEARTWOOD_SAPLING);
                     }).build());
 
     public static void register(IEventBus eventBus) {

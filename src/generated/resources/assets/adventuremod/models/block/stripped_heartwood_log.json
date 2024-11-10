@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "adventuremod:block/stripped_heartwood_log_top",
+    "side": "adventuremod:block/stripped_heartwood_log"
+  }
+}

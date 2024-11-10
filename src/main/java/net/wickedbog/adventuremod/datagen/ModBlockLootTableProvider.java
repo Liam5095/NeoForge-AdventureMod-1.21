@@ -26,7 +26,32 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
+        // Misc.
+
         dropSelf(ModBlocks.TEST_BLOCK.get());
+
+        // Logs
+
+        this.dropSelf(ModBlocks.HEARTWOOD_LOG.get());
+        this.dropSelf(ModBlocks.STRIPPED_HEARTWOOD_LOG.get());
+
+        // Woods
+
+        this.dropSelf(ModBlocks.HEARTWOOD_WOOD.get());
+        this.dropSelf(ModBlocks.STRIPPED_HEARTWOOD_WOOD.get());
+
+        // Planks
+
+        this.dropSelf(ModBlocks.HEARTWOOD_PLANKS.get());
+
+        // Leaves
+
+        this.add(ModBlocks.HEARTWOOD_LEAVES.get(), block ->
+                createLeavesDrops(block, ModBlocks.HEARTWOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+
+        // Saplings
+
+        this.dropSelf(ModBlocks.HEARTWOOD_SAPLING.get());
 
         // add(ModBlocks.BISMUTH_ORE.get(),
         //         block -> createOreDrop(ModBlocks.BISMUTH_ORE.get(), ModItems.RAW_BISMUTH.get()));

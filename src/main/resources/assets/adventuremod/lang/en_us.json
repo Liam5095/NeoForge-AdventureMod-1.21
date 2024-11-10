@@ -3,5 +3,17 @@
 
   "block.adventuremod.test_block": "Test Block",
 
+  "block.adventuremod.heartwood_log": "Heartwood Log",
+  "block.adventuremod.stripped_heartwood_log": "Stripped Heartwood Log",
+
+  "block.adventuremod.heartwood_wood": "Heartwood",
+  "block.adventuremod.stripped_heartwood_wood": "Stripped Heartwood",
+
+  "block.adventuremod.heartwood_planks": "Heartwood Planks",
+
+  "block.adventuremod.heartwood_leaves": "Heartwood Leaves",
+
+  "block.adventuremod.heartwood_sapling": "Heartwood Sapling",
+
   "creativetab.adventure_mod.title": "Adventure Mod Tab"
 }

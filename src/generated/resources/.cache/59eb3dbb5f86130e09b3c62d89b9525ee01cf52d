@@ -1,2 +1,9 @@
-// 1.21.1	2024-11-08T20:40:06.7367719	Loot Tables
+// 1.21.1	2024-11-09T15:16:44.5499934	Loot Tables
+672597e1222aa072d101c333b890a3b63cf34df4 data/adventuremod/loot_table/blocks/heartwood_leaves.json
+fce730113b2e65bce70a3ca39351b1b1ef93178c data/adventuremod/loot_table/blocks/heartwood_log.json
+50e6f8f73d9760846b4d8ae3fc15d298e1a44674 data/adventuremod/loot_table/blocks/heartwood_planks.json
+e7652e1ca22ebcee2aa8a7626afea752a7be3649 data/adventuremod/loot_table/blocks/heartwood_sapling.json
+4c51fd98330bd135cdd8212de74d77a73647e073 data/adventuremod/loot_table/blocks/heartwood_wood.json
+b72b90da4f5d716ff1fab1e44e20a7e694152565 data/adventuremod/loot_table/blocks/stripped_heartwood_log.json
+5ce8aa476ef6209d9a100ee79121bc7338397955 data/adventuremod/loot_table/blocks/stripped_heartwood_wood.json
 ce9bafe4d7d7eec0b0b366c7b60a11f103b9a1c6 data/adventuremod/loot_table/blocks/test_block.json

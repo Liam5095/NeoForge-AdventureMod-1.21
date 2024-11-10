@@ -3,9 +3,11 @@ package net.wickedbog.adventuremod.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.wickedbog.adventuremod.AdventureMod;
+import net.wickedbog.adventuremod.block.ModBlocks;
 
 import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
@@ -18,11 +20,15 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        // tag(ModTags.Items.TRANSFORMABLE_ITEMS)
-        //         .add(ModItems.BISMUTH.get())
-        //         .add(ModItems.RAW_BISMUTH.get())
-        //         .add(Items.COAL)
-        //         .add(Items.STICK)
-        //         .add(Items.COMPASS);
+        // Trees
+
+        tag(ItemTags.LOGS_THAT_BURN)
+                .add(ModBlocks.HEARTWOOD_LOG.get().asItem())
+                .add(ModBlocks.STRIPPED_HEARTWOOD_LOG.get().asItem())
+                .add(ModBlocks.HEARTWOOD_WOOD.get().asItem())
+                .add(ModBlocks.STRIPPED_HEARTWOOD_WOOD.get().asItem());
+
+        tag(ItemTags.PLANKS)
+                .add(ModBlocks.HEARTWOOD_PLANKS.get().asItem());
     }
 }

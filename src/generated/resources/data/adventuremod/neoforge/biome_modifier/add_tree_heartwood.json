@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": [
+    "minecraft:plains",
+    "adventuremod:skyward_forest"
+  ],
+  "features": "adventuremod:heartwood_placed",
+  "step": "vegetal_decoration"
+}
