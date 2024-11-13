@@ -1,6 +1,5 @@
 package net.wickedbog.adventuremod.datagen;
 
-import net.minecraft.core.Registry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -31,6 +30,14 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         saplingItem(ModBlocks.CELESTIAL_GRASS);
         saplingItem(ModBlocks.LUMINBLOSSOM);
+
+        // Foods
+
+        basicItem(ModItems.SKY_BERRIES.get());
+
+        // Dye
+
+        basicItem(ModItems.LUMINBLOSSOM_DYE.get());
     }
 
     private ItemModelBuilder saplingItem(DeferredBlock<Block> item) {

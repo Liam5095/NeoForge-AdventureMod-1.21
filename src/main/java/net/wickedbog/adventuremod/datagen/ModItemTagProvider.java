@@ -5,9 +5,11 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.wickedbog.adventuremod.AdventureMod;
 import net.wickedbog.adventuremod.block.ModBlocks;
+import net.wickedbog.adventuremod.item.ModItems;
 
 import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
@@ -30,5 +32,15 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(ItemTags.PLANKS)
                 .add(ModBlocks.HEARTWOOD_PLANKS.get().asItem());
+
+        // Foods
+
+        tag(Tags.Items.FOODS_BERRY)
+                .add(ModItems.SKY_BERRIES.get());
+
+        // Dyes
+
+        tag(Tags.Items.DYES_PURPLE)
+                .add(ModItems.LUMINBLOSSOM_DYE.get());
     }
 }
