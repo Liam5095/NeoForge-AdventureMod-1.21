@@ -71,12 +71,12 @@ public class LodestoneParticleEffects {
     public static void luminblossomsParticles(Level level, double x, double y, double z) {
         Random rand = new Random();
 
-        double rand_x = rand.nextDouble(-0.02, 0.02); // Smaller horizontal spread
-        double rand_z = rand.nextDouble(-0.02, 0.02); // Smaller horizontal spread
+        // Set a wider random position offset for spawning particles further away
+        double offsetX = rand.nextDouble(-0.5, 0.5); // Increase horizontal spread
+        double offsetY = rand.nextDouble(0.2, 0.6);  // Vertical offset for higher initial position
+        double offsetZ = rand.nextDouble(-0.5, 0.5); // Increase horizontal spread
 
         WorldParticleBuilder.create(ModParticles.SPIRIT_PARTICLE)
-                .setLifetime(20)
-                .setMotion(new Vec3(rand_x, 0.05, rand_z)) // Small initial upward motion
-                .spawn(level, x, y, z);
+                .spawn(level, x + offsetX, y + offsetY, z + offsetZ);
     }
 }
