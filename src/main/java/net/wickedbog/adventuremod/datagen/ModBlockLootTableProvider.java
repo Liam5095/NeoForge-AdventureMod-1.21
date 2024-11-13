@@ -4,11 +4,14 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.data.loot.packs.VanillaBlockLoot;
+import net.minecraft.data.loot.packs.VanillaLootTableProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
@@ -56,6 +59,13 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         // Flowers ect.
 
         this.dropSelf(ModBlocks.CELESTIAL_GRASS.get());
+
+        this.dropSelf(ModBlocks.LUMINBLOSSOM.get());
+        this.add(ModBlocks.POTTED_LUMINBLOSSOM.get(), createPotFlowerItemTable(ModBlocks.LUMINBLOSSOM));
+
+        // Magical
+
+        this.dropSelf(ModBlocks.CRYSTAL_CLUSTER_BLOCK.get());
 
         // add(ModBlocks.BISMUTH_ORE.get(),
         //         block -> createOreDrop(ModBlocks.BISMUTH_ORE.get(), ModItems.RAW_BISMUTH.get()));

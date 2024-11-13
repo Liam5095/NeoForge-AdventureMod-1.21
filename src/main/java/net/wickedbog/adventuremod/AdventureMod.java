@@ -1,8 +1,11 @@
 package net.wickedbog.adventuremod;
 
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.wickedbog.adventuremod.block.ModBlocks;
 import net.wickedbog.adventuremod.item.ModCreativeModeTabs;
 import net.wickedbog.adventuremod.item.ModItems;
+import net.wickedbog.adventuremod.particle.ModParticles;
 import net.wickedbog.adventuremod.worldgen.biomes.ModTerrablender;
 import org.slf4j.Logger;
 
@@ -38,12 +41,16 @@ public class AdventureMod {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
+        ModParticles.register(modEventBus);
+
         modEventBus.addListener(this::addCreative);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-
+        event.enqueueWork(() -> {
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.LUMINBLOSSOM.getId(), ModBlocks.POTTED_LUMINBLOSSOM);
+        });
     }
 
     // Add the example block item to the building blocks tab

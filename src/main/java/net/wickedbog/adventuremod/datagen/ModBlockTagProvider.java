@@ -38,6 +38,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         // Flowers ect.
 
         this.tag(BlockTags.FLOWERS)
-                .add(ModBlocks.CELESTIAL_GRASS.get());
+                .add(ModBlocks.CELESTIAL_GRASS.get())
+                .add(ModBlocks.LUMINBLOSSOM.get());
     }
 }

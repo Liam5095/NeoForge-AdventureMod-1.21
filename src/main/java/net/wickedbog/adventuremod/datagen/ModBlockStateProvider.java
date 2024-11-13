@@ -80,6 +80,15 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         simpleBlock(ModBlocks.CELESTIAL_GRASS.get(),
                 models().cross(blockTexture(ModBlocks.CELESTIAL_GRASS.get()).getPath(), blockTexture(ModBlocks.CELESTIAL_GRASS.get())).renderType("cutout"));
+
+        simpleBlock(ModBlocks.LUMINBLOSSOM.get(),
+                models().cross(blockTexture(ModBlocks.LUMINBLOSSOM.get()).getPath(), blockTexture(ModBlocks.LUMINBLOSSOM.get())).renderType("cutout"));
+        simpleBlock(ModBlocks.POTTED_LUMINBLOSSOM.get(), models().singleTexture("potted_luminblossom", ResourceLocation.parse("flower_pot_cross"), "plant",
+                blockTexture(ModBlocks.LUMINBLOSSOM.get())).renderType("cutout"));
+
+        // Magical
+
+        blockWithItem(ModBlocks.CRYSTAL_CLUSTER_BLOCK);
     }
 
 

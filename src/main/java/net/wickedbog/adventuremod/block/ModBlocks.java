@@ -3,6 +3,7 @@ package net.wickedbog.adventuremod.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.data.models.BlockModelGenerators;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
@@ -14,6 +15,8 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.wickedbog.adventuremod.AdventureMod;
+import net.wickedbog.adventuremod.block.custom.CrystalClusterBlock;
+import net.wickedbog.adventuremod.block.custom.LuminblossomBlock;
 import net.wickedbog.adventuremod.block.custom.ModFlammableRotatedPillarBlock;
 import net.wickedbog.adventuremod.item.ModItems;
 import net.wickedbog.adventuremod.worldgen.trees.ModTreeGrowers;
@@ -98,6 +101,20 @@ public class ModBlocks {
                     .replaceable().noCollission().instabreak()
                     .sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)
                     .ignitedByLava().pushReaction(PushReaction.DESTROY).lightLevel(s -> 3)));
+
+    public static final DeferredBlock<Block> LUMINBLOSSOM = registerBlock("luminblossom",
+            () -> new LuminblossomBlock(MobEffects.ABSORPTION, 2f, BlockBehaviour.Properties.of()
+                    .replaceable().noCollission().instabreak()
+                    .sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)
+                    .ignitedByLava().pushReaction(PushReaction.DESTROY)));
+
+    public static final DeferredBlock<Block> POTTED_LUMINBLOSSOM = registerBlock("potted_luminblossom",
+            () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), LUMINBLOSSOM, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
+
+    // Magical
+
+    public static final DeferredBlock<Block> CRYSTAL_CLUSTER_BLOCK = registerBlock("crystal_cluster_block",
+            () -> new CrystalClusterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK).sound(SoundType.STONE)));
 
     // Rest
 

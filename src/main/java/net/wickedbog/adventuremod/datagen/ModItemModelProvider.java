@@ -30,6 +30,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         // Flowers ect.
 
         saplingItem(ModBlocks.CELESTIAL_GRASS);
+        saplingItem(ModBlocks.LUMINBLOSSOM);
     }
 
     private ItemModelBuilder saplingItem(DeferredBlock<Block> item) {
