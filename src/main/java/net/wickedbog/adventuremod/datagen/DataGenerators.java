@@ -41,5 +41,6 @@ public class DataGenerators {
 
         generator.addProvider(event.includeClient(), new ModWorldGenProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeClient(), new AdvancementProvider(packOutput, lookupProvider, existingFileHelper, List.of(new ModAdvancementProvider())));
+        generator.addProvider(event.includeClient(), new ModSoundDefenitionsProvider(packOutput, existingFileHelper));
     }
 }

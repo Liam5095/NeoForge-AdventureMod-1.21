@@ -6,6 +6,7 @@ import net.wickedbog.adventuremod.block.ModBlocks;
 import net.wickedbog.adventuremod.item.ModCreativeModeTabs;
 import net.wickedbog.adventuremod.item.ModItems;
 import net.wickedbog.adventuremod.particle.ModParticles;
+import net.wickedbog.adventuremod.sound.ModSounds;
 import net.wickedbog.adventuremod.worldgen.biomes.ModTerrablender;
 import org.slf4j.Logger;
 
@@ -42,6 +43,7 @@ public class AdventureMod {
         ModBlocks.register(modEventBus);
 
         ModParticles.register(modEventBus);
+        ModSounds.register(modEventBus);
 
         modEventBus.addListener(this::addCreative);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
