@@ -1,15 +1,14 @@
 package net.wickedbog.adventuremod.datagen;
 
+import com.google.gson.JsonElement;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.models.BlockModelGenerators;
-import net.minecraft.data.models.blockstates.MultiVariantGenerator;
-import net.minecraft.data.models.blockstates.PropertyDispatch;
-import net.minecraft.data.models.blockstates.Variant;
-import net.minecraft.data.models.blockstates.VariantProperties;
+import net.minecraft.data.models.blockstates.*;
 import net.minecraft.data.models.model.ModelTemplate;
 import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.data.models.model.TextureMapping;
+import net.minecraft.data.models.model.TexturedModel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
@@ -21,25 +20,18 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.wickedbog.adventuremod.AdventureMod;
 import net.wickedbog.adventuremod.block.ModBlocks;
 
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
+
 public class ModBlockStateProvider extends BlockStateProvider {
-    public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
+    final Consumer<BlockStateGenerator> blockStateOutput;
+    final BiConsumer<ResourceLocation, Supplier<JsonElement>> modelOutput;
+
+    public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper, Consumer<BlockStateGenerator> blockStateOutput, BiConsumer<ResourceLocation, Supplier<JsonElement>> modelOutput) {
         super(output, AdventureMod.MOD_ID, exFileHelper);
-    }
-
-    static enum TintState {
-        TINTED,
-        NOT_TINTED;
-
-        private TintState() {
-        }
-
-        public ModelTemplate getCross() {
-            return this == TINTED ? ModelTemplates.TINTED_CROSS : ModelTemplates.CROSS;
-        }
-
-        public ModelTemplate getCrossPot() {
-            return this == TINTED ? ModelTemplates.TINTED_FLOWER_POT_CROSS : ModelTemplates.FLOWER_POT_CROSS;
-        }
+        this.blockStateOutput = blockStateOutput;
+        this.modelOutput = modelOutput;
     }
 
     @Override
@@ -89,9 +81,21 @@ public class ModBlockStateProvider extends BlockStateProvider {
         // Magical
 
         blockWithItem(ModBlocks.CRYSTAL_CLUSTER_BLOCK);
+
+        // Magical Ether Moss
+
+        carpetBlock(ModBlocks.ETHER_MOSS_CARPET, ModBlocks.ETHER_MOSS_BLOCK);
     }
 
+    private void carpetBlock(DeferredBlock<Block> carpetBlock, DeferredBlock<Block> fullBlock) {
+        simpleBlockWithItem(carpetBlock.get(),
+                models().carpet(BuiltInRegistries.BLOCK.getKey(carpetBlock.get()).getPath(), blockTexture(fullBlock.get())));
+        carpetBlockFull(fullBlock);
+    }
 
+    private void carpetBlockFull(DeferredBlock<Block> deferredBlock) {
+        blockWithItem(deferredBlock);
+    }
 
     private void leavesBlock(DeferredBlock<Block> deferredBlock) {
         simpleBlockWithItem(deferredBlock.get(),

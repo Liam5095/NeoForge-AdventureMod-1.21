@@ -40,5 +40,13 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         this.tag(BlockTags.FLOWERS)
                 .add(ModBlocks.CELESTIAL_GRASS.get())
                 .add(ModBlocks.LUMINBLOSSOM.get());
+
+        // Magical - Ether Moss
+
+        this.tag(BlockTags.WOOL_CARPETS)
+                .add(ModBlocks.ETHER_MOSS_CARPET.get());
+
+        this.tag(BlockTags.WOOL)
+                .add(ModBlocks.ETHER_MOSS_BLOCK.get());
     }
 }

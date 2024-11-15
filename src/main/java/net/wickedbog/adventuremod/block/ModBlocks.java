@@ -10,6 +10,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -115,6 +116,14 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> CRYSTAL_CLUSTER_BLOCK = registerBlock("crystal_cluster_block",
             () -> new CrystalClusterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK).sound(SoundType.STONE)));
+
+    // Magical - Ether Moss
+
+    public static final DeferredBlock<Block> ETHER_MOSS_BLOCK = registerBlock("ether_moss_block",
+            () -> new MossBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).strength(0.1f).sound(SoundType.MOSS).pushReaction(PushReaction.DESTROY)));
+
+    public static final DeferredBlock<Block> ETHER_MOSS_CARPET = registerBlock("ether_moss_carpet",
+            () -> new CarpetBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).strength(0.1f).sound(SoundType.MOSS_CARPET).pushReaction(PushReaction.DESTROY)));
 
     // Rest
 

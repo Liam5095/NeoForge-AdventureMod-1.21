@@ -67,6 +67,11 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         this.dropSelf(ModBlocks.CRYSTAL_CLUSTER_BLOCK.get());
 
+        // Magical - Ether Moss
+
+        this.dropSelf(ModBlocks.ETHER_MOSS_BLOCK.get());
+        this.dropSelf(ModBlocks.ETHER_MOSS_CARPET.get());
+
         // add(ModBlocks.BISMUTH_ORE.get(),
         //         block -> createOreDrop(ModBlocks.BISMUTH_ORE.get(), ModItems.RAW_BISMUTH.get()));
         // add(ModBlocks.BISMUTH_DEEPSLATE_ORE.get(),

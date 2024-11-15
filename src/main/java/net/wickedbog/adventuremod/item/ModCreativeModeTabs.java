@@ -31,6 +31,9 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModBlocks.HEARTWOOD_SAPLING);
                         pOutput.accept(ModBlocks.CELESTIAL_GRASS);
                         pOutput.accept(ModBlocks.LUMINBLOSSOM);
+                        pOutput.accept(ModBlocks.CRYSTAL_CLUSTER_BLOCK);
+                        pOutput.accept(ModBlocks.ETHER_MOSS_BLOCK);
+                        pOutput.accept(ModBlocks.ETHER_MOSS_CARPET);
                     }).build());
 
     public static void register(IEventBus eventBus) {

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "adventuremod:block/ether_moss_block"
+  }
+}

@@ -1,5 +1,7 @@
-// 1.21.1	2024-11-10T16:13:07.8540514	Tags for minecraft:block mod id adventuremod
+// 1.21.1	2024-11-14T16:02:26.367539	Tags for minecraft:block mod id adventuremod
 0b216f1f4be22a1e9c8c614ed59c1428a2e08da9 data/minecraft/tags/block/flowers.json
 d7c4a6e1daf39182e345278835ac7f2a1f599fa9 data/minecraft/tags/block/logs_that_burn.json
 f428f4661b6cc4067c995bde79c0b2ef00152064 data/minecraft/tags/block/mineable/pickaxe.json
 f428f4661b6cc4067c995bde79c0b2ef00152064 data/minecraft/tags/block/needs_stone_tool.json
+9175d4ea2f53cf57489d762981206e460d0d348f data/minecraft/tags/block/wool.json
+125b432e638907208b1a71576170c3ed219b4186 data/minecraft/tags/block/wool_carpets.json
