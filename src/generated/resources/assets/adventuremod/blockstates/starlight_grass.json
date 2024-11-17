@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "adventuremod:block/starlight_grass_lower"
+    },
+    "half=upper": {
+      "model": "adventuremod:block/starlight_grass_upper"
+    }
+  }
+}

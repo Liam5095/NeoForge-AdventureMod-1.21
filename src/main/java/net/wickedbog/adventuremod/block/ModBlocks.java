@@ -19,6 +19,7 @@ import net.wickedbog.adventuremod.AdventureMod;
 import net.wickedbog.adventuremod.block.custom.CrystalClusterBlock;
 import net.wickedbog.adventuremod.block.custom.LuminblossomBlock;
 import net.wickedbog.adventuremod.block.custom.ModFlammableRotatedPillarBlock;
+import net.wickedbog.adventuremod.block.custom.StarlightGrassBlock;
 import net.wickedbog.adventuremod.item.ModItems;
 import net.wickedbog.adventuremod.worldgen.trees.ModTreeGrowers;
 
@@ -98,10 +99,10 @@ public class ModBlocks {
     // Flowers ect.
 
     public static final DeferredBlock<Block> CELESTIAL_GRASS = registerBlock("celestial_grass",
-            () -> new TallGrassBlock(BlockBehaviour.Properties.of()
-                    .replaceable().noCollission().instabreak()
-                    .sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)
-                    .ignitedByLava().pushReaction(PushReaction.DESTROY).lightLevel(s -> 3)));
+            () -> new TallGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS).lightLevel(light -> 3)));
+
+    public static final DeferredBlock<Block> STARLIGHT_GRASS = registerBlock("starlight_grass",
+            () -> new StarlightGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
 
     public static final DeferredBlock<Block> LUMINBLOSSOM = registerBlock("luminblossom",
             () -> new LuminblossomBlock(MobEffects.ABSORPTION, 2f, BlockBehaviour.Properties.of()

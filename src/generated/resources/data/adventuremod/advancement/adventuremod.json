@@ -12,11 +12,11 @@
     }
   },
   "display": {
-    "background": "adventuremod:textures/block/heartwood_log.png",
-    "description": "This a weird tree...",
+    "background": "adventuremod:textures/block/ether_moss_block.png",
+    "description": "",
     "icon": {
       "count": 1,
-      "id": "adventuremod:heartwood_log"
+      "id": "adventuremod:ether_moss_block"
     },
     "title": "Adventure Mod"
   },

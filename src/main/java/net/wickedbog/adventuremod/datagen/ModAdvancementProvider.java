@@ -22,10 +22,18 @@ public class ModAdvancementProvider implements AdvancementProvider.AdvancementGe
 
     @Override
     public void generate(HolderLookup.Provider registries, Consumer<AdvancementHolder> saver, ExistingFileHelper existingFileHelper) {
+        // Advancement advancementTemplate = builder
+        //         .display(new DisplayInfo(new ItemStack(ModItems/ModBlocks.ICON.get()),
+        //                 Component.literal("Title"), Component.literal("Description"),
+        //                 null (background if wanted), AdvancementType.TASK,
+        //                 showToast, announceChat, hidden))
+        //                .addCriterion("trigger_name", Trigger.TriggerInstance.example())
+        //                .save(saver, ResourceLocation.fromNamespaceAndPath(AdventureMod.MOD_ID, "advancementName"));
+
         Advancement rootAdvancement = builder
-                .display(new DisplayInfo(new ItemStack(ModBlocks.HEARTWOOD_LOG.get()),
-                        Component.literal("Adventure Mod"), Component.literal("This a weird tree..."),
-                        Optional.of(ResourceLocation.fromNamespaceAndPath(AdventureMod.MOD_ID, "textures/block/heartwood_log.png")), AdvancementType.TASK,
+                .display(new DisplayInfo(new ItemStack(ModBlocks.ETHER_MOSS_BLOCK.get()),
+                        Component.literal("Adventure Mod"), Component.literal(""),
+                        Optional.of(ResourceLocation.fromNamespaceAndPath(AdventureMod.MOD_ID, "textures/block/ether_moss_block.png")), AdvancementType.TASK,
                         true, true, false))
                 .addCriterion("has_heartwood_log", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.HEARTWOOD_LOG.get()))
                 .save(saver, ResourceLocation.fromNamespaceAndPath(AdventureMod.MOD_ID, "adventuremod"), existingFileHelper).value();

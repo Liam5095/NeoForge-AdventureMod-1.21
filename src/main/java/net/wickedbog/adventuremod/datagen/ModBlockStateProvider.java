@@ -1,17 +1,16 @@
 package net.wickedbog.adventuremod.datagen;
 
-import com.google.gson.JsonElement;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.models.BlockModelGenerators;
-import net.minecraft.data.models.blockstates.*;
-import net.minecraft.data.models.model.ModelTemplate;
-import net.minecraft.data.models.model.ModelTemplates;
-import net.minecraft.data.models.model.TextureMapping;
-import net.minecraft.data.models.model.TexturedModel;
+import net.minecraft.data.models.model.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.TallGrassBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
@@ -19,19 +18,24 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.wickedbog.adventuremod.AdventureMod;
 import net.wickedbog.adventuremod.block.ModBlocks;
-
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
+import net.wickedbog.adventuremod.block.custom.StarlightGrassBlock;
 
 public class ModBlockStateProvider extends BlockStateProvider {
-    final Consumer<BlockStateGenerator> blockStateOutput;
-    final BiConsumer<ResourceLocation, Supplier<JsonElement>> modelOutput;
+    static enum TintState {
+        TINTED,
+        NOT_TINTED;
 
-    public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper, Consumer<BlockStateGenerator> blockStateOutput, BiConsumer<ResourceLocation, Supplier<JsonElement>> modelOutput) {
+        public ModelTemplate getCross() {
+            return this == TINTED ? ModelTemplates.TINTED_CROSS : ModelTemplates.CROSS;
+        }
+
+        public ModelTemplate getCrossPot() {
+            return this == TINTED ? ModelTemplates.TINTED_FLOWER_POT_CROSS : ModelTemplates.FLOWER_POT_CROSS;
+        }
+    }
+
+    public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
         super(output, AdventureMod.MOD_ID, exFileHelper);
-        this.blockStateOutput = blockStateOutput;
-        this.modelOutput = modelOutput;
     }
 
     @Override
@@ -73,6 +77,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(ModBlocks.CELESTIAL_GRASS.get(),
                 models().cross(blockTexture(ModBlocks.CELESTIAL_GRASS.get()).getPath(), blockTexture(ModBlocks.CELESTIAL_GRASS.get())).renderType("cutout"));
 
+        doubleFlowerBlock(ModBlocks.STARLIGHT_GRASS, "starlight_grass");
+
         simpleBlock(ModBlocks.LUMINBLOSSOM.get(),
                 models().cross(blockTexture(ModBlocks.LUMINBLOSSOM.get()).getPath(), blockTexture(ModBlocks.LUMINBLOSSOM.get())).renderType("cutout"));
         simpleBlock(ModBlocks.POTTED_LUMINBLOSSOM.get(), models().singleTexture("potted_luminblossom", ResourceLocation.parse("flower_pot_cross"), "plant",
@@ -87,24 +93,40 @@ public class ModBlockStateProvider extends BlockStateProvider {
         carpetBlock(ModBlocks.ETHER_MOSS_CARPET, ModBlocks.ETHER_MOSS_BLOCK);
     }
 
+    private void doubleFlowerBlock(DeferredBlock<Block> flowerBlock, String name) {
+        getVariantBuilder(flowerBlock.get())
+                .partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)
+                .modelForState().modelFile(models()
+                        .withExistingParent(name + "_lower", mcLoc("block/cross"))
+                        .texture("cross", modLoc("block/" + name + "_bottom"))
+                        .texture("particle", modLoc("block/" + name + "_top")).renderType("cutout")).addModel()
+                .partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)
+                .modelForState().modelFile(models()
+                        .withExistingParent(name + "_upper", mcLoc("block/cross"))
+                        .texture("cross", modLoc("block/" + name + "_top"))
+                        .texture("particle", modLoc("block/" + name + "_top")).renderType("cutout")).addModel();
+
+        
+    }
+
     private void carpetBlock(DeferredBlock<Block> carpetBlock, DeferredBlock<Block> fullBlock) {
         simpleBlockWithItem(carpetBlock.get(),
                 models().carpet(BuiltInRegistries.BLOCK.getKey(carpetBlock.get()).getPath(), blockTexture(fullBlock.get())));
         carpetBlockFull(fullBlock);
     }
 
-    private void carpetBlockFull(DeferredBlock<Block> deferredBlock) {
-        blockWithItem(deferredBlock);
+    private void carpetBlockFull(DeferredBlock<Block> carpetFull) {
+        blockWithItem(carpetFull);
     }
 
-    private void leavesBlock(DeferredBlock<Block> deferredBlock) {
-        simpleBlockWithItem(deferredBlock.get(),
-                models().singleTexture(BuiltInRegistries.BLOCK.getKey(deferredBlock.get()).getPath(), ResourceLocation.parse("minecraft:block/leaves"),
-                        "all", blockTexture(deferredBlock.get())).renderType("cutout"));
+    private void leavesBlock(DeferredBlock<Block> leaves) {
+        simpleBlockWithItem(leaves.get(),
+                models().singleTexture(BuiltInRegistries.BLOCK.getKey(leaves.get()).getPath(), ResourceLocation.parse("minecraft:block/leaves"),
+                        "all", blockTexture(leaves.get())).renderType("cutout"));
     }
 
-    private void saplingBlock(DeferredBlock<Block> deferredBlock) {
-        simpleBlock(deferredBlock.get(), models().cross(BuiltInRegistries.BLOCK.getKey(deferredBlock.get()).getPath(), blockTexture(deferredBlock.get())).renderType("cutout"));
+    private void saplingBlock(DeferredBlock<Block> sapling) {
+        simpleBlock(sapling.get(), models().cross(BuiltInRegistries.BLOCK.getKey(sapling.get()).getPath(), blockTexture(sapling.get())).renderType("cutout"));
 
     }
 

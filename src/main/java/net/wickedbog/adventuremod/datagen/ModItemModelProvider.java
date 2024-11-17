@@ -28,8 +28,10 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         // Flowers ect.
 
-        saplingItem(ModBlocks.CELESTIAL_GRASS);
-        saplingItem(ModBlocks.LUMINBLOSSOM);
+        flowerItem(ModBlocks.CELESTIAL_GRASS);
+        flowerItem(ModBlocks.LUMINBLOSSOM);
+
+        doubleFlowerItem(ModBlocks.STARLIGHT_GRASS);
 
         // Foods
 
@@ -44,4 +46,17 @@ public class ModItemModelProvider extends ItemModelProvider {
         return withExistingParent(item.getId().getPath(),
                 ResourceLocation.parse("item/generated")).texture("layer0",
                 ResourceLocation.fromNamespaceAndPath(AdventureMod.MOD_ID,"block/" + item.getId().getPath()));
-}}
+    }
+
+    private ItemModelBuilder flowerItem(DeferredBlock<Block> item) {
+        return withExistingParent(item.getId().getPath(),
+                ResourceLocation.parse("item/generated")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(AdventureMod.MOD_ID,"block/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder doubleFlowerItem(DeferredBlock<Block> item) {
+        return withExistingParent(item.getId().getPath(),
+                ResourceLocation.parse("item/generated")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(AdventureMod.MOD_ID,"block/" + item.getId().getPath() + "_top"));
+    }
+}

@@ -21,9 +21,13 @@
 
   "block.adventuremod.celestial_grass": "Celestial Grass",
   "block.adventuremod.luminblossom": "Luminblossom",
+  "block.adventuremod.potted_luminblossom": "Potted Luminblossom",
+  "block.adventuremod.starlight_grass": "Starlight Grass",
 
   "block.adventuremod.ether_moss_block": "Ether Moss",
   "block.adventuremod.ether_moss_carpet": "Ether Moss Carpet",
+
+  "block.adventuremod.crystal_cluster_block": "Crystal Cluster Block",
 
   "creativetab.adventure_mod.title": "Adventure Mod Tab"
 }

@@ -48,24 +48,7 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new ModItemTagProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
 
         generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
-
-        Map<ResourceLocation, Supplier<JsonElement>> supplierMap = Maps.newHashMap();
-        BiConsumer<ResourceLocation, Supplier<JsonElement>> supplierBiConsumer = (resourceLocation, supplier) -> {
-            Supplier<JsonElement> jsonElementSupplier = supplierMap.put(resourceLocation, supplier);
-            if (jsonElementSupplier != null) {
-                throw new IllegalStateException("Duplicate model definition for " + resourceLocation);
-            }
-        };
-
-        Map<Block, BlockStateGenerator> stateGeneratorMap = Maps.newHashMap();
-        Consumer<BlockStateGenerator> stateGeneratorConsumer = blockStateGenerator -> {
-            Block block = blockStateGenerator.getBlock();
-            BlockStateGenerator stateGenerator = stateGeneratorMap.put(block, blockStateGenerator);
-            if (stateGenerator != null) {
-                throw new IllegalStateException("Duplicate blockstate definition for " + block);
-            }
-        };
-        generator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, existingFileHelper, stateGeneratorConsumer, supplierBiConsumer));
+        generator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, existingFileHelper));
 
         generator.addProvider(event.includeClient(), new ModWorldGenProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeClient(), new AdvancementProvider(packOutput, lookupProvider, existingFileHelper, List.of(new ModAdvancementProvider())));
