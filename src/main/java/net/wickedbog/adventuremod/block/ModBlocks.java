@@ -16,10 +16,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.wickedbog.adventuremod.AdventureMod;
-import net.wickedbog.adventuremod.block.custom.CrystalClusterBlock;
-import net.wickedbog.adventuremod.block.custom.LuminblossomBlock;
-import net.wickedbog.adventuremod.block.custom.ModFlammableRotatedPillarBlock;
-import net.wickedbog.adventuremod.block.custom.StarlightGrassBlock;
+import net.wickedbog.adventuremod.block.custom.*;
 import net.wickedbog.adventuremod.item.ModItems;
 import net.wickedbog.adventuremod.worldgen.trees.ModTreeGrowers;
 
@@ -111,7 +108,7 @@ public class ModBlocks {
                     .ignitedByLava().pushReaction(PushReaction.DESTROY)));
 
     public static final DeferredBlock<Block> POTTED_LUMINBLOSSOM = registerBlock("potted_luminblossom",
-            () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), LUMINBLOSSOM, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
+            () -> new PottedLuminblossomBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), LUMINBLOSSOM, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
 
     // Magical
 
