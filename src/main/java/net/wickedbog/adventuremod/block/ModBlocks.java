@@ -2,7 +2,6 @@ package net.wickedbog.adventuremod.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -102,13 +101,14 @@ public class ModBlocks {
             () -> new StarlightGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
 
     public static final DeferredBlock<Block> LUMINBLOSSOM = registerBlock("luminblossom",
-            () -> new LuminblossomBlock(MobEffects.ABSORPTION, 2f, BlockBehaviour.Properties.of()
-                    .replaceable().noCollission().instabreak()
-                    .sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)
-                    .ignitedByLava().pushReaction(PushReaction.DESTROY)));
+            () -> new LuminblossomBlock(MobEffects.ABSORPTION, 2f, BlockBehaviour.Properties.ofFullCopy(Blocks.ALLIUM)));
+    public static final DeferredBlock<Block> ZEPHYR_LILLY = registerBlock("zephyr_lilly",
+            () -> new FlowerBlock(MobEffects.NIGHT_VISION, 2f, BlockBehaviour.Properties.ofFullCopy(Blocks.ALLIUM)));
 
     public static final DeferredBlock<Block> POTTED_LUMINBLOSSOM = registerBlock("potted_luminblossom",
             () -> new PottedLuminblossomBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), LUMINBLOSSOM, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
+    public static final DeferredBlock<Block> POTTED_ZEPHYR_LILLY = registerBlock("potted_zephyr_lilly",
+            () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), ZEPHYR_LILLY, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
 
     // Magical
 

@@ -84,6 +84,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(ModBlocks.POTTED_LUMINBLOSSOM.get(), models().singleTexture("potted_luminblossom", ResourceLocation.parse("flower_pot_cross"), "plant",
                 blockTexture(ModBlocks.LUMINBLOSSOM.get())).renderType("cutout"));
 
+        simpleBlock(ModBlocks.ZEPHYR_LILLY.get(),
+                models().cross(blockTexture(ModBlocks.ZEPHYR_LILLY.get()).getPath(), blockTexture(ModBlocks.ZEPHYR_LILLY.get())).renderType("cutout"));
+        simpleBlock(ModBlocks.POTTED_ZEPHYR_LILLY.get(), models().singleTexture("potted_zephyr_lilly", ResourceLocation.parse("flower_pot_cross"), "plant",
+                blockTexture(ModBlocks.ZEPHYR_LILLY.get())).renderType("cutout"));
+
         // Magical
 
         blockWithItem(ModBlocks.CRYSTAL_CLUSTER_BLOCK);
@@ -105,8 +110,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
                         .withExistingParent(name + "_upper", mcLoc("block/cross"))
                         .texture("cross", modLoc("block/" + name + "_top"))
                         .texture("particle", modLoc("block/" + name + "_top")).renderType("cutout")).addModel();
-
-        
     }
 
     private void carpetBlock(DeferredBlock<Block> carpetBlock, DeferredBlock<Block> fullBlock) {

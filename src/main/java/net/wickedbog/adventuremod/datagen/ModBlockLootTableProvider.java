@@ -70,6 +70,9 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.LUMINBLOSSOM.get());
         this.add(ModBlocks.POTTED_LUMINBLOSSOM.get(), createPotFlowerItemTable(ModBlocks.LUMINBLOSSOM));
 
+        this.dropSelf(ModBlocks.ZEPHYR_LILLY.get());
+        this.add(ModBlocks.POTTED_ZEPHYR_LILLY.get(), createPotFlowerItemTable(ModBlocks.ZEPHYR_LILLY));
+
         this.add(ModBlocks.STARLIGHT_GRASS.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1f))

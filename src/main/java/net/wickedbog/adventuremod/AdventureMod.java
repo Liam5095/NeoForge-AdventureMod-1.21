@@ -52,6 +52,7 @@ public class AdventureMod {
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.LUMINBLOSSOM.getId(), ModBlocks.POTTED_LUMINBLOSSOM);
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.ZEPHYR_LILLY.getId(), ModBlocks.POTTED_ZEPHYR_LILLY);
         });
     }
 
