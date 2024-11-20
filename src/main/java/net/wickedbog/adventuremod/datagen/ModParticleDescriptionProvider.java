@@ -16,6 +16,7 @@ public class ModParticleDescriptionProvider extends ParticleDescriptionProvider 
     protected void addDescriptions() {
         sprite(ModParticles.SPIRIT_PARTICLE.get(), ResourceLocation.fromNamespaceAndPath(AdventureMod.MOD_ID, "spirit_particle"));
         sprite(ModParticles.TEST_PARTICLE.get(), ResourceLocation.fromNamespaceAndPath(AdventureMod.MOD_ID, "test_particle"));
+        sprite(ModParticles.FIREFLY_PARTICLE.get(), ResourceLocation.fromNamespaceAndPath(AdventureMod.MOD_ID, "firefly_particle"));
 
         // Animated
 

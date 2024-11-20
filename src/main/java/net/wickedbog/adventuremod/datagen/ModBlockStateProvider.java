@@ -7,18 +7,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.TallGrassBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
-import net.minecraft.world.level.block.state.properties.Half;
-import net.minecraft.world.level.block.state.properties.Property;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.wickedbog.adventuremod.AdventureMod;
 import net.wickedbog.adventuremod.block.ModBlocks;
-import net.wickedbog.adventuremod.block.custom.StarlightGrassBlock;
 
 public class ModBlockStateProvider extends BlockStateProvider {
     static enum TintState {
@@ -88,6 +83,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 models().cross(blockTexture(ModBlocks.ZEPHYR_LILLY.get()).getPath(), blockTexture(ModBlocks.ZEPHYR_LILLY.get())).renderType("cutout"));
         simpleBlock(ModBlocks.POTTED_ZEPHYR_LILLY.get(), models().singleTexture("potted_zephyr_lilly", ResourceLocation.parse("flower_pot_cross"), "plant",
                 blockTexture(ModBlocks.ZEPHYR_LILLY.get())).renderType("cutout"));
+
+        simpleBlock(ModBlocks.STARPETAL.get(),
+                models().cross(blockTexture(ModBlocks.STARPETAL.get()).getPath(), blockTexture(ModBlocks.STARPETAL.get())).renderType("cutout"));
+        simpleBlock(ModBlocks.POTTED_STARPETAL.get(), models().singleTexture("potted_starpetal_lilly", ResourceLocation.parse("flower_pot_cross"), "plant",
+                blockTexture(ModBlocks.STARPETAL.get())).renderType("cutout"));
 
         // Magical
 

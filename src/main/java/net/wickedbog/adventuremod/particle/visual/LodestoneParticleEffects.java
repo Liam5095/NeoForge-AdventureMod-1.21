@@ -3,7 +3,6 @@ package net.wickedbog.adventuremod.particle.visual;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -78,5 +77,15 @@ public class LodestoneParticleEffects {
 
         WorldParticleBuilder.create(ModParticles.SPIRIT_PARTICLE)
                 .spawn(level, x + offsetX, y + offsetY, z + offsetZ);
+    }
+
+    public static void fireflyParticles(Level level, double x, double y, double z) {
+        Random rand = new Random();
+
+        double offsetX = rand.nextDouble(-0.5, 0.5);;
+        double offsetZ = rand.nextDouble(-0.5, 0.5);
+
+        WorldParticleBuilder.create(ModParticles.FIREFLY_PARTICLE)
+                .spawn(level, x + offsetX, y , z + offsetZ);
     }
 }

@@ -7,6 +7,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.wickedbog.adventuremod.AdventureMod;
 import net.wickedbog.adventuremod.particle.ModParticles;
+import net.wickedbog.adventuremod.particle.custom.FireflyParticle;
 import net.wickedbog.adventuremod.particle.custom.SpiritParticle;
 import net.wickedbog.adventuremod.particle.custom.TestParticle;
 
@@ -19,6 +20,11 @@ public class ModEventClientBusEvents {
         Minecraft.getInstance().particleEngine.register(
                 ModParticles.SPIRIT_PARTICLE.get(),
                 (SpiritParticle.Provider::new)
+        );
+
+        Minecraft.getInstance().particleEngine.register(
+                ModParticles.FIREFLY_PARTICLE.get(),
+                (FireflyParticle.Provider::new)
         );
     }
 }

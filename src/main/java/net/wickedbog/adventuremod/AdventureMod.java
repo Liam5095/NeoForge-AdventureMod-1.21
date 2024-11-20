@@ -28,7 +28,7 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 @Mod(AdventureMod.MOD_ID)
 public class AdventureMod {
     public static final String MOD_ID = "adventuremod";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public AdventureMod(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
@@ -53,6 +53,7 @@ public class AdventureMod {
         event.enqueueWork(() -> {
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.LUMINBLOSSOM.getId(), ModBlocks.POTTED_LUMINBLOSSOM);
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.ZEPHYR_LILLY.getId(), ModBlocks.POTTED_ZEPHYR_LILLY);
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.STARPETAL.getId(), ModBlocks.POTTED_STARPETAL);
         });
     }
 

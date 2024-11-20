@@ -23,6 +23,9 @@ public class ModParticles {
     public static final DeferredHolder<ParticleType<?>, LodestoneWorldParticleType> SPIRIT_PARTICLE =
             PARTICLE_TYPES.register("spirit_particle", LodestoneWorldParticleType::new);
 
+    public static final DeferredHolder<ParticleType<?>, LodestoneWorldParticleType> FIREFLY_PARTICLE =
+            PARTICLE_TYPES.register("firefly_particle", LodestoneWorldParticleType::new);
+
     public static void register(IEventBus eventBus) {
         PARTICLE_TYPES.register(eventBus);
     }

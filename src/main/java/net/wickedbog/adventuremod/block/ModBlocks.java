@@ -104,11 +104,15 @@ public class ModBlocks {
             () -> new LuminblossomBlock(MobEffects.ABSORPTION, 2f, BlockBehaviour.Properties.ofFullCopy(Blocks.ALLIUM)));
     public static final DeferredBlock<Block> ZEPHYR_LILLY = registerBlock("zephyr_lilly",
             () -> new FlowerBlock(MobEffects.NIGHT_VISION, 2f, BlockBehaviour.Properties.ofFullCopy(Blocks.ALLIUM)));
+    public static final DeferredBlock<Block> STARPETAL = registerBlock("starpetal",
+            () -> new StarpetalBlock(MobEffects.NIGHT_VISION, 2f, BlockBehaviour.Properties.ofFullCopy(Blocks.ALLIUM)));
 
     public static final DeferredBlock<Block> POTTED_LUMINBLOSSOM = registerBlock("potted_luminblossom",
             () -> new PottedLuminblossomBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), LUMINBLOSSOM, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
     public static final DeferredBlock<Block> POTTED_ZEPHYR_LILLY = registerBlock("potted_zephyr_lilly",
             () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), ZEPHYR_LILLY, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
+    public static final DeferredBlock<Block> POTTED_STARPETAL = registerBlock("potted_starpetal",
+            () -> new PottedStarpetalBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), STARPETAL, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
 
     // Magical
 

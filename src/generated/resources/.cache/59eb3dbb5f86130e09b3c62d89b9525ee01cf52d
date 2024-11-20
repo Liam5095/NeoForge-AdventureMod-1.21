@@ -1,4 +1,4 @@
-// 1.21.1	2024-11-19T13:01:52.3966889	Loot Tables
+// 1.21.1	2024-11-19T13:56:29.0422308	Loot Tables
 599f65d380f6beb18ead61635fbbdd8695137e1a data/adventuremod/loot_table/blocks/celestial_grass.json
 98c22e15f91dac71db7be2fb153d5f862ed9e0d4 data/adventuremod/loot_table/blocks/crystal_cluster_block.json
 4eeeeab9d6b9f3a419b9ca8221f516a5380dd0a0 data/adventuremod/loot_table/blocks/ether_moss_block.json
@@ -10,8 +10,10 @@ e7652e1ca22ebcee2aa8a7626afea752a7be3649 data/adventuremod/loot_table/blocks/hea
 4c51fd98330bd135cdd8212de74d77a73647e073 data/adventuremod/loot_table/blocks/heartwood_wood.json
 c1ad995430d329a69de3c0826c831bf7f125ae04 data/adventuremod/loot_table/blocks/luminblossom.json
 519c0b093a319af20fac0b3f19a49f3d889d594f data/adventuremod/loot_table/blocks/potted_luminblossom.json
+2d8971f8eea4fae2ad1518b0caf784ed39832ae7 data/adventuremod/loot_table/blocks/potted_starpetal.json
 5b2db01da429f5b1c73d649c49cf41f390e0164a data/adventuremod/loot_table/blocks/potted_zephyr_lilly.json
 4f9b8671e5566fedd96e73cec810e47e913a70c1 data/adventuremod/loot_table/blocks/starlight_grass.json
+e33d6658b98c72ecac40d69e78d0b37106be4a96 data/adventuremod/loot_table/blocks/starpetal.json
 b72b90da4f5d716ff1fab1e44e20a7e694152565 data/adventuremod/loot_table/blocks/stripped_heartwood_log.json
 5ce8aa476ef6209d9a100ee79121bc7338397955 data/adventuremod/loot_table/blocks/stripped_heartwood_wood.json
 ce9bafe4d7d7eec0b0b366c7b60a11f103b9a1c6 data/adventuremod/loot_table/blocks/test_block.json

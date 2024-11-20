@@ -31,6 +31,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         flowerItem(ModBlocks.CELESTIAL_GRASS);
         flowerItem(ModBlocks.LUMINBLOSSOM);
         flowerItem(ModBlocks.ZEPHYR_LILLY);
+        flowerItem(ModBlocks.STARPETAL);
 
         doubleFlowerItem(ModBlocks.STARLIGHT_GRASS);
 

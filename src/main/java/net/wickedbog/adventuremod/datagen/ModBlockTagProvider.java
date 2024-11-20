@@ -33,7 +33,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.HEARTWOOD_LOG.get())
                 .add(ModBlocks.STRIPPED_HEARTWOOD_LOG.get())
                 .add(ModBlocks.HEARTWOOD_WOOD.get())
-                .add(ModBlocks.STRIPPED_HEARTWOOD_WOOD.get());
+                .add(ModBlocks.STRIPPED_HEARTWOOD_WOOD.get())
+                .add(ModBlocks.STARPETAL.get());
 
         // Flowers ect.
 
@@ -43,7 +44,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         this.tag(BlockTags.FLOWER_POTS)
                 .add(ModBlocks.POTTED_LUMINBLOSSOM.get())
-                .add(ModBlocks.POTTED_ZEPHYR_LILLY.get());
+                .add(ModBlocks.POTTED_ZEPHYR_LILLY.get())
+                .add(ModBlocks.POTTED_STARPETAL.get());
 
         // Magical - Ether Moss
 

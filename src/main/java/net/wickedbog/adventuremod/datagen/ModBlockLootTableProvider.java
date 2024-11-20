@@ -5,14 +5,11 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
-import net.minecraft.data.loot.packs.VanillaBlockLoot;
-import net.minecraft.data.loot.packs.VanillaLootTableProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -72,6 +69,9 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         this.dropSelf(ModBlocks.ZEPHYR_LILLY.get());
         this.add(ModBlocks.POTTED_ZEPHYR_LILLY.get(), createPotFlowerItemTable(ModBlocks.ZEPHYR_LILLY));
+
+        this.dropSelf(ModBlocks.STARPETAL.get());
+        this.add(ModBlocks.POTTED_STARPETAL.get(), createPotFlowerItemTable(ModBlocks.STARPETAL));
 
         this.add(ModBlocks.STARLIGHT_GRASS.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool()
