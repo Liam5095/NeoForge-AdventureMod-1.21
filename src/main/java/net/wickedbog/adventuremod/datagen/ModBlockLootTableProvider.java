@@ -1,27 +1,34 @@
 package net.wickedbog.adventuremod.datagen;
 
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.wickedbog.adventuremod.block.ModBlocks;
+import net.wickedbog.adventuremod.item.ModItems;
 
 import java.util.Set;
 
@@ -33,6 +40,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
+        HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+
         // Misc.
 
         dropSelf(ModBlocks.TEST_BLOCK.get());
@@ -62,7 +71,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         // Flowers ect.
 
-        this.dropSelf(ModBlocks.CELESTIAL_GRASS.get());
+        this.add(ModBlocks.CELESTIAL_GRASS.get(), createGrassDrops(ModBlocks.CELESTIAL_GRASS.get()));
 
         this.dropSelf(ModBlocks.LUMINBLOSSOM.get());
         this.add(ModBlocks.POTTED_LUMINBLOSSOM.get(), createPotFlowerItemTable(ModBlocks.LUMINBLOSSOM));
@@ -83,7 +92,18 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         // Magical
 
-        this.dropSelf(ModBlocks.CRYSTAL_CLUSTER_BLOCK.get());
+        this.add(ModBlocks.CRYSTAL_CLUSTER_BLOCK.get(), this.createSilkTouchDispatchTable(
+                ModBlocks.CRYSTAL_CLUSTER_BLOCK.get(),
+                LootItem.lootTableItem(ModItems.CELESTIAL_SHARD)
+                        .apply(SetItemCountFunction.setCount(ConstantValue.exactly(3.0f)))
+                        .apply(ApplyBonusCount.addOreBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)))
+                        .when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(ItemTags.CLUSTER_MAX_HARVESTABLES)))
+                        .otherwise(
+                                (LootPoolEntryContainer.Builder<?>)this.applyExplosionDecay(
+                                        ModBlocks.CRYSTAL_CLUSTER_BLOCK, LootItem.lootTableItem(ModItems.CELESTIAL_SHARD).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F)))
+                                )
+                        )
+        ));
 
         // Magical - Ether Moss
 

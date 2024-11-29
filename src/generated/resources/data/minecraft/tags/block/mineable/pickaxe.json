@@ -1,5 +1,6 @@
 {
   "values": [
-    "adventuremod:test_block"
+    "adventuremod:test_block",
+    "adventuremod:crystal_cluster_block"
   ]
 }

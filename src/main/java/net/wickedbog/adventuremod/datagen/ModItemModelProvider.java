@@ -42,6 +42,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         // Dye
 
         basicItem(ModItems.LUMINBLOSSOM_DYE.get());
+
+        // Shards
+
+        basicItem(ModItems.CELESTIAL_SHARD.get());
     }
 
     private ItemModelBuilder saplingItem(DeferredBlock<Block> item) {

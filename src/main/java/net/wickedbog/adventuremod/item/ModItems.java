@@ -25,6 +25,11 @@ public class ModItems {
     public static final DeferredItem<Item> SKY_BERRIES = ITEMS.register("sky_berries",
             () -> new Item(new Item.Properties().food(ModFoodProperties.SKY_BERRIES)));
 
+    // Shards
+
+    public static final DeferredItem<Item> CELESTIAL_SHARD = ITEMS.register("celestial_shard",
+            () -> new Item(new Item.Properties()));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

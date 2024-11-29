@@ -10,6 +10,10 @@ import net.wickedbog.adventuremod.AdventureMod;
 
 public class ModTags {
     public static class Blocks {
+        public static final TagKey<Block> HEARTWOOD = createTag("heartwood");
+        public static final TagKey<Block> HEARTWOOD_EXTRAS = createTag("heartwood_extras");
+        public static final TagKey<Block> HEARTWOOD_COMPLETE = createTag("heartwood_complete");
+
         private static TagKey<Block> createTag(String name) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(AdventureMod.MOD_ID, name));
         }

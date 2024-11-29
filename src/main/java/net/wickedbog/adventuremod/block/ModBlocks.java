@@ -117,7 +117,7 @@ public class ModBlocks {
     // Magical
 
     public static final DeferredBlock<Block> CRYSTAL_CLUSTER_BLOCK = registerBlock("crystal_cluster_block",
-            () -> new CrystalClusterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK).sound(SoundType.STONE)));
+            () -> new CrystalClusterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK)));
 
     // Magical - Ether Moss
 

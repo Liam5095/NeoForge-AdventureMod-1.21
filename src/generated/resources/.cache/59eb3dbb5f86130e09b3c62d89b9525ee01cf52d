@@ -1,6 +1,6 @@
-// 1.21.1	2024-11-19T13:56:29.0422308	Loot Tables
-599f65d380f6beb18ead61635fbbdd8695137e1a data/adventuremod/loot_table/blocks/celestial_grass.json
-98c22e15f91dac71db7be2fb153d5f862ed9e0d4 data/adventuremod/loot_table/blocks/crystal_cluster_block.json
+// 1.21.1	2024-11-27T16:23:36.7629855	Loot Tables
+feebff679f5d34ac458d486d8fe146abc1259555 data/adventuremod/loot_table/blocks/celestial_grass.json
+3c3d81b4d0e40b022b09fc502674cb7e1bdcf10c data/adventuremod/loot_table/blocks/crystal_cluster_block.json
 4eeeeab9d6b9f3a419b9ca8221f516a5380dd0a0 data/adventuremod/loot_table/blocks/ether_moss_block.json
 da59d8b8d3e9e7d8b31fc5ba6d7fa473b83df898 data/adventuremod/loot_table/blocks/ether_moss_carpet.json
 672597e1222aa072d101c333b890a3b63cf34df4 data/adventuremod/loot_table/blocks/heartwood_leaves.json
